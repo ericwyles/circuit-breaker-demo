@@ -20,7 +20,7 @@ public class HelloService {
 
     @Bulkhead(name = ENDPOINT1)
     @CircuitBreaker(name = ENDPOINT1, fallbackMethod = "getHello1OutputFallback")
-    public String getHello1Output() {
+    String getHello1Output() {
         log.info("Executing endpoint1 Primary Path.");
         slownessSimulator.toggle(); // toggle the sleep time
         slownessSimulator.sleep(); // sleep
@@ -33,7 +33,7 @@ public class HelloService {
         return "HELLO SERVICE IS UNAVAILABLE. PLEASE TRY AGAIN LATER.";
     }
 
-    public String getHello2Output() {
+    String getHello2Output() {
         return "Hello from endpoint2";
     }
 }
