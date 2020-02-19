@@ -9,10 +9,10 @@ import java.util.concurrent.atomic.AtomicLong;
 @Component
 @Slf4j
 public class SlownessSimulator {
-    AtomicLong numCalls= new AtomicLong(0);
-    boolean makeSlow=true;
+    private AtomicLong numCalls= new AtomicLong(0);
+    private boolean makeSlow=true;
 
-    public void toggleAndSleep(boolean sleep) {
+    void toggleAndSleep(boolean sleep) {
         if (numCalls.incrementAndGet() % 50 == 0) { // alternate the flag every 50 calls
             makeSlow = !makeSlow;
             log.info("makeSlow is {}", makeSlow);
