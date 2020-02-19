@@ -1,11 +1,9 @@
 package com.ericwyles.circuitbreakerdemo;
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
-import io.vavr.control.Try;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.util.concurrent.atomic.AtomicLong;
 
 @Service
 @Slf4j
