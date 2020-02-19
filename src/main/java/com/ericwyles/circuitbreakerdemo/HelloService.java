@@ -12,13 +12,14 @@ public class HelloService {
         this.slownessSimulator = slownessSimulator;
     }
 
-    public String getHello1Output() {
+    String getHello1Output() {
         log.info("Executing endpoint1.");
-        slownessSimulator.toggleAndSleep(true);
+        slownessSimulator.toggle();
+        slownessSimulator.sleep();
         return "Hello from endpoint 1";
     }
 
-    public String getHello2Output() {
+    String getHello2Output() {
         return "Hello from endpoint2";
     }
 }
