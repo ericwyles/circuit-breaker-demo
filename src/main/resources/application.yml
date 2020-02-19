@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: circuit-breaker-demo
+
+management.server.port: 8081
+management.endpoints.web.exposure.include: '*'
+
+management.endpoint.metrics.enabled: true
+management.endpoint.prometheus.enabled: true
+management.endpoint.health.show-details: always
+management.health.circuitbreakers.enabled: true
+management.metrics.export.prometheus.enabled: true
+
+server:
+  tomcat:
+    max-threads: 20
+
+resilience4j.circuitbreaker:
+  instances:
+    endpoint1CircuitBreaker:
+      registerHealthIndicator: true
+
+      # open breaker
+      automaticTransitionFromOpenToHalfOpenEnabled: true
+      waitDurationInOpenState: 10000
+
+      # half Open
+      permittedNumberOfCallsInHalfOpenState: 5
+
+      # closed / half open
+      minimumNumberOfCalls: 5
+      slidingWindowSize: 9
+      failureRateThreshold: 50
+      slowCallDurationThreshold: 20000
+      slowCallRateThreshold: 75
