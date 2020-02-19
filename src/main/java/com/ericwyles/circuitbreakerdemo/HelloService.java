@@ -19,7 +19,7 @@ public class HelloService {
     }
 
     @Bulkhead(name = ENDPOINT1)
-    @CircuitBreaker(name = "endpoint1CircuitBreaker", fallbackMethod = "getHello1OutputFallback")
+    @CircuitBreaker(name = ENDPOINT1, fallbackMethod = "getHello1OutputFallback")
     public String getHello1Output() {
         log.info("Executing endpoint1 Primary Path.");
         slownessSimulator.toggle(); // toggle the sleep time
