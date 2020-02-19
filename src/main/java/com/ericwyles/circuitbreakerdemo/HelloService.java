@@ -16,19 +16,20 @@ public class HelloService {
     }
 
     @CircuitBreaker(name = "endpoint1CircuitBreaker", fallbackMethod = "getHello1OutputFallback")
-    public String getHello1Output() {
+    String getHello1Output() {
         log.info("Executing endpoint1 Primary Path.");
-        slownessSimulator.toggleAndSleep(true);
+        slownessSimulator.toggle();
+        slownessSimulator.sleep();
         return "Hello from endpoint 1";
     }
 
     private String getHello1OutputFallback(Exception ex) {
         log.info("Executing endpoint1 Fallback.");
-        slownessSimulator.toggleAndSleep(false);
+        slownessSimulator.toggle();
         return "HELLO SERVICE IS UNAVAILABLE. PLEASE TRY AGAIN LATER.";
     }
 
-    public String getHello2Output() {
+    String getHello2Output() {
         return "Hello from endpoint2";
     }
 }
