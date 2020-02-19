@@ -1,5 +1,6 @@
 package com.ericwyles.circuitbreakerdemo;
 
+import io.github.resilience4j.bulkhead.annotation.Bulkhead;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -9,22 +10,26 @@ import org.springframework.stereotype.Service;
 @Slf4j
 
 public class HelloService {
-    SlownessSimulator slownessSimulator;
+    private static final String ENDPOINT1 = "endpoint1";
+
+    private SlownessSimulator slownessSimulator;
 
     public HelloService(SlownessSimulator slownessSimulator) {
         this.slownessSimulator = slownessSimulator;
     }
 
+    @Bulkhead(name = ENDPOINT1)
     @CircuitBreaker(name = "endpoint1CircuitBreaker", fallbackMethod = "getHello1OutputFallback")
     public String getHello1Output() {
         log.info("Executing endpoint1 Primary Path.");
-        slownessSimulator.toggleAndSleep(true);
+        slownessSimulator.toggle(); // toggle the sleep time
+        slownessSimulator.sleep(); // sleep
         return "Hello from endpoint 1";
     }
 
     private String getHello1OutputFallback(Exception ex) {
         log.info("Executing endpoint1 Fallback.");
-        slownessSimulator.toggleAndSleep(false);
+        slownessSimulator.toggle(); // in the fallback we toggle but dont sleep
         return "HELLO SERVICE IS UNAVAILABLE. PLEASE TRY AGAIN LATER.";
     }
 

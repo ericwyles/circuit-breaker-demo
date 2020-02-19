@@ -12,17 +12,17 @@ public class SlownessSimulator {
     AtomicLong numCalls= new AtomicLong(0);
     boolean makeSlow=true;
 
-    public void toggleAndSleep(boolean sleep) {
+    public void toggle() {
         if (numCalls.incrementAndGet() % 50 == 0) { // alternate the flag every 50 calls
             makeSlow = !makeSlow;
             log.info("makeSlow is {}", makeSlow);
         }
+    }
 
-        if (sleep) {
-            if (makeSlow)
-                Try.run(() -> Thread.sleep(30000)); // 30 seconds
-            else
-                Try.run(() -> Thread.sleep(15000)); // 15 seconds
-        }
+    public void sleep() {
+        if (makeSlow)
+            Try.run(() -> Thread.sleep(30000)); // 30 seconds
+        else
+            Try.run(() -> Thread.sleep(15000)); // 15 seconds
     }
 }

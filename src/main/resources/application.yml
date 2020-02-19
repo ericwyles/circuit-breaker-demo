@@ -17,7 +17,7 @@ server:
 
 resilience4j.circuitbreaker:
   instances:
-    endpoint1CircuitBreaker:
+    endpoint1:
       registerHealthIndicator: true
 
       # open breaker
@@ -33,3 +33,9 @@ resilience4j.circuitbreaker:
       failureRateThreshold: 50
       slowCallDurationThreshold: 20000
       slowCallRateThreshold: 75
+
+resilience4j.bulkhead:
+  instances:
+    endpoint1:
+      maxWaitDuration: 500ms
+      maxConcurrentCalls: 15
