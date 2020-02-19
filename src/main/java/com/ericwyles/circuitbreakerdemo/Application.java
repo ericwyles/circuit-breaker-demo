@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class Application {
 	private HelloService helloService;
-
 	public Application(HelloService helloService) {
 		this.helloService = helloService;
 	}
@@ -20,17 +19,11 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 	}
 
-	/***********************************
-	 Endpoint 1
-	 ***********************************/
 	@GetMapping("/endpoint1")
 	public String endpoint1Implementation() {
 		return helloService.getHello1Output();
 	}
 
-	/***********************************
-	 Endpoint 2
-	 ***********************************/
 	@GetMapping("/endpoint2")
 	public String endpoint2Implementation(){
 		return helloService.getHello2Output();
