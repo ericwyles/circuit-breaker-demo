@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 public class HelloService {
     private static final String ENDPOINT1 = "endpoint1";
-
     private SlownessSimulator slownessSimulator;
 
     public HelloService(SlownessSimulator slownessSimulator) {
