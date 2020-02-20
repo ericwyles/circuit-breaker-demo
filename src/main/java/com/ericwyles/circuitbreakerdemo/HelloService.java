@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Slf4j
-
 public class HelloService {
     SlownessSimulator slownessSimulator;
 
@@ -15,7 +14,8 @@ public class HelloService {
         this.slownessSimulator = slownessSimulator;
     }
 
-    @CircuitBreaker(name = "endpoint1CircuitBreaker", fallbackMethod = "getHello1OutputFallback")
+    @CircuitBreaker(name = "endpoint1CircuitBreaker",
+                    fallbackMethod = "getHello1OutputFallback")
     String getHello1Output() {
         log.info("Executing endpoint1 Primary Path.");
         slownessSimulator.toggle();
