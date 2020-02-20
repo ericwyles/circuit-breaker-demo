@@ -2,6 +2,14 @@ spring:
   application:
     name: circuit-breaker-demo
 
+server:
+  tomcat:
+    max-threads: 20
+
+logging:
+  pattern:
+    console: "%clr(%d{${LOG_DATEFORMAT_PATTERN:yyyy-MM-dd HH:mm:ss.SSS}}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %m%n"
+
 management.server.port: 8081
 management.endpoints.web.exposure.include: '*'
 
@@ -11,9 +19,6 @@ management.endpoint.health.show-details: always
 management.health.circuitbreakers.enabled: true
 management.metrics.export.prometheus.enabled: true
 
-server:
-  tomcat:
-    max-threads: 20
 
 resilience4j.circuitbreaker:
   instances:
@@ -38,4 +43,4 @@ resilience4j.bulkhead:
   instances:
     endpoint1:
       maxWaitDuration: 500ms
-      maxConcurrentCalls: 15
+      maxConcurrentCalls: 18
