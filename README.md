@@ -13,7 +13,7 @@ Navigate to the project on github to clone the repo and explore the code branche
 
 
 
-## Demo2
+## Demo 2
 * **Code**: [https://github.com/ericwyles/circuit-breaker-demo/tree/demo2](https://github.com/ericwyles/circuit-breaker-demo/tree/demo2)
 * **Description**: Introduces circuit breaker. Thread pool is occasionally exhausted but recovers quickly when the circuit opens. Calls not to the slow endpoint are briefly affected.
 *  **Watch the video**: [https://youtu.be/0dLcjU529Tg](https://youtu.be/0dLcjU529Tg)
