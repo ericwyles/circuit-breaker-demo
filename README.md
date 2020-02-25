@@ -27,6 +27,8 @@ Navigate to the project on github to clone the repo and explore the code branche
 
 
 ## Additional resources
-* https://resilience4j.readme.io/docs/getting-started
-* https://github.com/resilience4j/resilience4j
+* [Resilience4j Getting started](https://resilience4j.readme.io/docs/getting-started)
+* [Resilience4j Project Home](https://github.com/resilience4j/resilience4j)
+* [Bulkhead Pattern (Microsoft)](https://docs.microsoft.com/en-us/azure/architecture/patterns/bulkhead)
+* [Circuit Breaker Pattern (Microsoft)](https://docs.microsoft.com/en-us/azure/architecture/patterns/circuit-breaker)
 
