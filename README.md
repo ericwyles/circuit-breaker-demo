@@ -1,7 +1,7 @@
 This project contains code, demos, and other resources to accompany the
 presentation given at the J.B. Hunt "Skill Up" on February 25, 2020.
 Please contact me if you have any questions or need any further
-resources. Conference recordings will be available to employees from the
+resources. Session recordings will be available to employees from the
 J.B. Hunt training department.
 
 Navigate to the project on github to clone the repo and explore the code branches: https://github.com/ericwyles/circuit-breaker-demo
