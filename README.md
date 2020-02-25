@@ -1,5 +1,6 @@
+# Demo1
 
-* **demo1** - no resilience4j patterns at all. Frequent calls to endpoint1 will eventually starve the app of resources (threads) affecting all endpoints and grinding the app to a halt.
+No resilience4j patterns at all. Frequent calls to endpoint1 will eventually starve the app of resources (threads) affecting all endpoints and grinding the app to a halt.
 
 [![Watch the video](https://i9.ytimg.com/vi/bP8rpTYJ10w/mq2.jpg?sqp=CPf6v_IF&rs=AOn4CLCKftGrO2q-W3bfHJzRwvbqWZYsQw)](https://youtu.be/bP8rpTYJ10w)
 
